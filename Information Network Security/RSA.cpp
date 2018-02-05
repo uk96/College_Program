@@ -1,5 +1,8 @@
 #include <iostream>
 #include<math.h>
+#include<set>
+#include<map>
+#include<vector>
 using namespace std;
 #define ll long long
 ll prime[100005];
