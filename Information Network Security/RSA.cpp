@@ -67,6 +67,39 @@ int main() {
     cin>>e;
   }while(gcd(e,eu)!=1);
   ll d=modular(e,count-1,eu);
-  cout<<"e="<<e<<" d="<<d<<" n="<<n<<endl;
+  cout<<"Public Key: "<<e<<" "<<n<<endl;
+  cout<<"Private Key:"<<d<<" "<<n<<endl;
+  string s;
+  cout<<"Enter plaintext:";
+  cin>>s;
+  ll size=s.length();
+  ll arr[size];
+  for(i=0;i<size;i++)
+  {
+    arr[i]=s[i];
+  }
+  for(i=0;i<size;i++)
+  {
+
+    arr[i]=modular(arr[i],e,n);
+  }
+  cout<<"Cipher Text:"<<endl;
+  for(i=0;i<size;i++)
+    cout<<arr[i]<<" ";
+  cout<<endl;
+  cout<<"Enter of size of ciphertext:";
+  cin>>size;
+  cout<<"Enter cipher text"<<endl;
+  ll val[size];
+  for(i=0;i<size;i++)
+    cin>>val[i];
+  for(i=0;i<size;i++)
+  {
+    val[i]=modular(val[i],d,n);
+  }
+  string ty="";
+  for(i=0;i<size;i++)
+    ty+=('A'+val[i]);
+  cout<<"Plain Text is "<<ty<<endl;
   return 0; 
 }
